@@ -7,6 +7,7 @@ import DatePicker from 'react-native-datepicker';
 import {
   Container,
   Title,
+  TitleDate,
   TextInput,
   RegisterButton,
   RegisterButtonText,
@@ -61,11 +62,13 @@ export default function Main() {
 
   return (
     <Container>
-      <Title>Informe seus dados</Title>
+      <Title>Cadastro</Title>
+      <TitleDate>Informe a sua data de nascimento</TitleDate>
       <DatePicker
         format="DD/MM/YYYY"
         style={{width: 350}}
         date={anoNascimento}
+        mode="date"
         onDateChange={text => setData(text)}
         customStyles={{
           dateIcon: {

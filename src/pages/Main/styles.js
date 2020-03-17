@@ -11,6 +11,10 @@ export const Title = styled.Text`
   color: #fff;
   font-size: 35px;
 `;
+export const TitleDate = styled.Text`
+  color: #fff;
+  font-size: 16px;
+`;
 
 export const TextInput = styled.TextInput`
   background: #fff;
@@ -18,7 +22,7 @@ export const TextInput = styled.TextInput`
   height: 50px;
   padding: 0 25px;
   font-size: 18px;
-  margin-top: 20px;
+  margin-top: 15px;
   border-radius: 5px;
   border: 1px solid;
   border-color: rgba(255, 255, 255, 0.2);
