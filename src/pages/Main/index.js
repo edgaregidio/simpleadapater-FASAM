@@ -1,5 +1,9 @@
 import React, {useState} from 'react';
-//testai
+
+import {ToastAndroid} from 'react-native';
+
+import DatePicker from 'react-native-datepicker';
+
 import {
   Container,
   Title,
@@ -24,14 +28,30 @@ export default function Main() {
 
   const [lista, setListas] = useState([]);
 
+  const toastNecessario = () => {
+    ToastAndroid.showWithGravity(
+      'É necessário preencher todos os campos!',
+      ToastAndroid.SHORT,
+      ToastAndroid.BOTTOM,
+    );
+  };
+  const toastCadastrado = () => {
+    ToastAndroid.showWithGravity(
+      'Usuário cadastrado com sucesso!',
+      ToastAndroid.SHORT,
+      ToastAndroid.BOTTOM,
+    );
+  };
+
   const handleAdd = () => {
-    if (!anoNascimento || !corOlhos || !genero || corCabelos) {
-      return alert('É necessário preencher todos os campos');
+    if (!anoNascimento || !corOlhos || !genero || !corCabelos) {
+      return toastNecessario();
     }
     setListas([
       ...lista,
       {anoNascimento, corOlhos, genero, corCabelos, lastId},
     ]);
+    toastCadastrado();
     setData('');
     setOlhos('');
     setGenero('');
@@ -42,9 +62,38 @@ export default function Main() {
   return (
     <Container>
       <Title>Informe seus dados</Title>
+      <DatePicker
+        format="DD/MM/YYYY"
+        style={{width: 350}}
+        date={anoNascimento}
+        onDateChange={text => setData(text)}
+        customStyles={{
+          dateIcon: {
+            position: 'absolute',
+            left: 0,
+            top: 4,
+            marginLeft: 0,
+          },
+          dateInput: {
+            backgroundColor: '#fff',
+            marginLeft: 36,
+            size: 25,
+            borderRadius: 5,
+          },
+          dateText: {
+            fontSize: 20,
+            color: '#612d74',
+            fontWeight: 'bold',
+          },
+          // ... You can check the source to find the other keys.
+        }}
+      />
+
       <TextInput
         placeholder="Data de Nascimento"
         placeholderTextColor="#7e57c2"
+        keyboardType="numeric"
+        editable={false}
         value={anoNascimento}
         onChangeText={text => setData(text)}
       />
