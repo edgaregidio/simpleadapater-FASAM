@@ -25,6 +25,9 @@ export default function Main() {
   const [lista, setListas] = useState([]);
 
   const handleAdd = () => {
+    if (!anoNascimento || !corOlhos || !genero || corCabelos) {
+      return alert('É necessário preencher todos os campos');
+    }
     setListas([
       ...lista,
       {anoNascimento, corOlhos, genero, corCabelos, lastId},
