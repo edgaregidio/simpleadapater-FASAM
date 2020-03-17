@@ -1,4 +1,4 @@
-import React, {useState, Fragment} from 'react';
+import React, {useState} from 'react';
 //testai
 import {
   Container,
@@ -7,7 +7,6 @@ import {
   RegisterButton,
   RegisterButtonText,
   ScrollView,
-  Content,
   CardList,
   CardHeader,
   CorOlhos,

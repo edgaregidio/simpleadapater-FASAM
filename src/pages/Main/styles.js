@@ -46,11 +46,6 @@ export const ScrollView = styled.ScrollView`
   flex: 1;
   margin: 10px 0 10px;
 `;
-
-export const Content = styled.View`
-  flex: 1;
-`;
-
 export const CardList = styled.View`
   background: #fff;
   border-radius: 5px;
